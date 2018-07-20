@@ -60,14 +60,14 @@ $(function() {
 
   describe('New Feed Selection', function() {
 
-    let firstEntry, updatedFirstEntry;
+    let entries, updatedEntries;
 
     beforeEach(function(done) {
       loadFeed(0, function() {
-        firstEntry = $('.feed .entry h2')[0].innerHTML;
+        entries = $('.feed .entry h2').html();
 
         loadFeed(1, function() {
-          updatedFirstEntry = $('.feed .entry h2')[0].innerHTML;
+          updatedEntries = $('.feed .entry h2').html();
           done();
         });
 
@@ -75,7 +75,7 @@ $(function() {
     })
 
     it('are new feed loaded', function() {
-        expect(firstEntry).not.toEqual(updatedFirstEntry);
+        expect(entries).not.toEqual(updatedEntries);
     });
   });
 
